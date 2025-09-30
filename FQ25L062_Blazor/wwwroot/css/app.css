@@ -130,3 +130,16 @@ legend {
     font-size: 1em;
     color: darkslategray; /* Match border color */
 }
+
+.personne {
+    border: 1px dashed darkslategray;
+    border-radius: 5px;
+    width: 250px;
+    background-color: lightblue;
+    margin: 10px;
+    font-size: 1.2em;
+}
+
+.personne:hover {
+    background-color: lightcoral;
+}

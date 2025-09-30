@@ -1,5 +1,8 @@
-﻿@using System.Globalization
-<h3>Pendu</h3>
+﻿@page "/Pendu"
+
+<PageTitle>Pseudo Pendu</PageTitle>
+
+<h3>Pseudo Pendu</h3>
 
 @if(mot is null)
 {
@@ -74,7 +77,6 @@ else
 
     private void NewGame()
     {
-        Console.WriteLine("New Game");
         nombreEssais = 0;
         chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".Select(c => c.ToString()).ToList();
         playedChar.Clear();
@@ -84,13 +86,11 @@ else
 
     private void OnChange(ChangeEventArgs e)
     {
-        Console.WriteLine("Changement de caractère");
         selectedChar = e?.Value?.ToString() ?? "";
     }
 
     private void Try()
     {
-        Console.WriteLine("Appel Try");
         if(selectedChar is not "")
         {
             nombreEssais++;
