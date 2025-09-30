@@ -101,3 +101,32 @@ a, .btn-link {
 code {
     color: #c02d76;
 }
+
+.letter-space {
+    font-size: 2em;
+    letter-spacing: 25px;
+}
+
+span .playedChar{
+    margin-right: 25px;
+}
+
+fieldset {
+    margin-top: 20px;
+    font-size: 1em;
+    border: 2px solid darkslategray; /* Customize border color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px;
+}
+
+legend {
+    width: 250px;
+    padding-left: 5px;
+    position: relative;
+    top: -25px;
+    left: 10px;
+    background-color: white;
+    border: 2px solid darkslategray;
+    font-size: 1em;
+    color: darkslategray; /* Match border color */
+}
