@@ -1,0 +1,40 @@
+﻿@inject IHttpClientFactory _factory
+
+@page "/dino"
+
+<h3>Dino</h3>
+
+@if(_items is null)
+{
+    <p>Loading data, please wait...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Espece</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Dino dino in _items)
+            {
+                <tr>
+                    <td>@dino.Id</td>
+                    <td>@dino.Espece</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Dino[]? _items;
+
+    protected override async Task OnInitializedAsync()
+    {
+        HttpClient client = _factory.CreateClient(ApiName.DinoManagerApi);
+        _items = await client.GetFromJsonAsync<Dino[]>("api/dino");
+    }
+}
