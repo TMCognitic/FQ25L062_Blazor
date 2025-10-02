@@ -1,4 +1,5 @@
 ﻿@inject IHttpClientFactory _factory
+@inject NavigationManager _nav
 
 @page "/dino"
 
@@ -15,6 +16,7 @@ else
             <tr>
                 <th>Id</th>
                 <th>Espece</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +24,8 @@ else
             {
                 <tr>
                     <td>@dino.Id</td>
-                    <td>@dino.Espece</td>
+                    <td @onclick="() => OnClick(dino.Id)">@dino.Espece</td>
+                    <td><a href="dino/details/@dino.Id">Details</a></td>
                 </tr>
             }
         </tbody>
@@ -36,5 +39,10 @@ else
     {
         HttpClient client = _factory.CreateClient(ApiName.DinoManagerApi);
         _items = await client.GetFromJsonAsync<Dino[]>("api/dino");
+    }
+
+    private void OnClick(int id)
+    {
+        _nav.NavigateTo($"dino/details/{id}");
     }
 }
